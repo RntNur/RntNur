@@ -1,0 +1,15 @@
+https://www.pythonanywhere.com/user/jebrick/shares/fef0e705f6c141d89d78964e6704072c/import telebot
+
+token = "5767843786:AAHdJlOdcS8PTR1dCczSna47xC6jcVD92lU"
+bot = telebot.TeleBot(token)
+
+word = "Ринат"
+
+@bot.message_handler(content_types=["text"])
+def echo(message):
+    if word in message.text:
+        text = "Ба! Знакомые все лица!"
+    else:
+        text = message.text
+    bot.send_message(message.chat.id, text)
+bot.polling(none_stop=True)
